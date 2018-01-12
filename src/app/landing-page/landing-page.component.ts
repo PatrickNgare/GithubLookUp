@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http,Response } from '@angular/http';
+import {CommonModule} from '@angular/common';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
+
+
 
 }
