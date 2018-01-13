@@ -1,8 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Http,Response } from '@angular/http';
-import {CommonModule} from '@angular/common';
-import 'rxjs/add/operator/map';
-import { SearchserviceService } from '../search/searchservice.service'
+import { SearchserviceService } from '../search/searchservice.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,26 +8,28 @@ import { SearchserviceService } from '../search/searchservice.service'
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-profile:any[];
-repos: any[];
+  profile:any[];
+  repos: any[];
+  username:string;
 
-constructor(private searchservice: SearchserviceService  ){
-  this.searchservice. getProfile()
-  .subscribe(profile =>{
-    console.log(profile);
-    this.profile=profile;
+  constructor(private searchService: SearchserviceService) {
 
-  });
-   this.searchservice. getRepos().subscribe( repos =>{
-     console.log(repos);
-     this.repos=repos;
-
-   })
-
-}
-  ngOnInit() {
   }
 
+  findProfile(){
+  	this.searchService.updateProfile(this.username);
+  	this.searchService.getProfile().subscribe(profile => {
+  		console.log(profile);
+  		this.profile = profile;
+  	});
 
+  	this.searchService.getRepos().subscribe(repos => {
+  		console.log(repos);
+  		this.repos = repos;
+  	});
+  }
+
+  ngOnInit() {
+  }
 
 }

@@ -1,10 +1,8 @@
 <header>
   <h2>Welcome to github look up</h2></header>
-Github:<input name="title" searchTerm />
-<button class="btn btn-dark btn-large" (click)='performSearch(searchTerm)'>Search User</button>
-<form action="">
+<form action="" class="search-form ">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="search user" />
+    Github user:<input type="text" class="form-control" placeholder="enter user name" [(ngModel)]="username" name="username" (keyup)="findProfile()"/>
   </div>
 </form>
 

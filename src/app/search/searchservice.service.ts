@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SearchserviceService {
   private username:string;
-  private clientId='6f3926ef5fc15553e5e2';
-  private clientsecret='52fa021b8bf938b4481a4b5c65c21e9e70625279';
+  private clientId='ee5b325de0c6173dc1fb';
+  private clientsecret='cb027f69131dac4eb1c725c801051ff743472b12';
 
   constructor(private http:Http) {
    console.log("service is ready");
@@ -23,5 +23,8 @@ export class SearchserviceService {
     +this.username + "/repos?client_id" + this.clientId
     +"&client_secret=" +this.clientsecret)
 .map(res=>res.json());
+ }
+ updateProfile(username:string){
+   this.username=username;
  }
 }
