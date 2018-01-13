@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
+import { SearchserviceService} from './search/searchservice.service';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     LandingPageComponent
   ],
@@ -16,7 +16,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SearchserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
