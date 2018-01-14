@@ -3,7 +3,7 @@
 ### 13th january 2018
 ### By patrick Ngare
 
- #Description
+ ## Description
 
  Github lookup is a web application where you insert github username and the app searches for you and it displays the user information in github account
 
@@ -42,7 +42,8 @@ HTML
 ## Bugs
 There are no known Bugs
 
- ##Github API
+ ## Github API
+
  This app uses the GitHub API to retrieve the data. This API allows 5,000 requests per hour with an API key, but only 60 requests per hour without one. Everyone is therefore required to use their own unique key.
 
 ## License
