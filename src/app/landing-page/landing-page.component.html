@@ -44,11 +44,14 @@
         </div>
         <div class="col-sm-5">
           <ul class="List-group">
-            <li class="List-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
-            <li class="List-group-item" *ngIf="profile.hireable">Available for hire</li>
-            <li class="List-group-item" *ngIf="profile.blog"><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
-            <li class="List-group-item" *ngIf="profile.email"><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
-            <li class="List-group-item" *ngIf="profile.location">{{profile.location}}</li>
+            <li class="list-group-item" *ngIf="profile.bio"><strong>Bio </strong>{{profile.bio}}</li>
+            <li class="list-group-item" *ngIf="profile.hireable"><strong>Available for hire </strong></li>
+            <li class="list-group-item" *ngIf="profile.blog"><strong>Blog: </strong><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
+            <li class="list-group-item" *ngIf="profile.email"><strong>Email: </strong><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
+            <li class="list-group-item" *ngIf="profile.location"><strong>Location: </strong>{{profile.location}}</li>
+            <li class="list-group-item" *ngIf="profile.location"><strong>Username: </strong>{{profile.login}}</li>
+            <li class="list-group-item" *ngIf="profile.location"><strong>Member Since: </strong>{{profile.created_at}}</li>
+
 
           </ul>
         </div>
