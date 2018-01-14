@@ -9,7 +9,7 @@ export class SearchserviceService {
 
   constructor(private http:Http) {
    console.log("service is ready");
-   this.username="patrickngare"
+   this.username="patrickNgare"
   }
 
  getProfile(){

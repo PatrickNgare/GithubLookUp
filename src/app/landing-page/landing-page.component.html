@@ -17,7 +17,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink='/landing-page' routerLinkActive='a'>Home</a></li>
+        <a routerLink='/landing-page' routerLinkActive='a'>Home</a>
+        <a routerLink='/landing-page' routerLinkActive='a'>About US</a>
+        <a routerLink='/landing-page' routerLinkActive='a'>Repos</a>
+
 
       </ul>
 
@@ -26,7 +29,7 @@
 </nav> <!--end of navigation -->
 <form action="" class="search-form ">
   <div class="form-group">
-    Github user:<input type="text" class="form-control" placeholder="enter user name" [(ngModel)]="username" name="username" (keyup)="findProfile()"/>
+    Github user:<input type="text" class="form-control" name="name" id="findProfile" placeholder="enter user name" [(ngModel)]="username" name="username" (keyup)="findProfile()"/>
   </div>
 </form>
 
@@ -57,10 +60,10 @@
         </div>
         <div class="col-sm-4">
           <p>
-            <span class="label label-default">{{profile.followers}}Followers</span>
-              <span class="label label-primary">Followings{{profile.following}}</span>
-              <span class="label label-success">{{profile.public_gists}} Public Gists</span>
-              <span class="label label-info">{{profile.public_repos}} Public Repos</span>
+            <span class="badge badge-default">{{profile.followers}}Followers</span>
+              <span class="badge badge-primary">Followings{{profile.following}}</span>
+              <span class="badge badge-success">{{profile.public_gists}} Public Gists</span>
+              <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
           </p>
           <p> <a href="{{profile.html_url}}" class="btn btn-success btn-sm" target="_">View Profile on Github</a>  </p>
           <div class="panel panel-default">
@@ -72,6 +75,7 @@
               </p>
               <p>{{repo.description}}</p>
             </div>
+
           </div>
         </div>
       </div>
