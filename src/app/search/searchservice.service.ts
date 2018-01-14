@@ -9,8 +9,9 @@ export class SearchserviceService {
 
   constructor(private http:Http) {
    console.log("service is ready");
-   this.username='patrickNgare';
+   this.username="patrickngare"
   }
+
  getProfile(){
    return this.http.get("https://api.github.com/users/"
     +this.username +"?client_id=" + this.clientId
