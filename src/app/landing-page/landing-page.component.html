@@ -1,85 +1,95 @@
 <div class="container-fluid">
 
 
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Github LookUp</a>
+        <a class="navbar-brand" href="#">Github LookUp</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <a routerLink='/landing-page' routerLinkActive='a'>Home</a>
+
+
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <a routerLink='/landing-page' routerLinkActive='a'>Home</a>
-
-
-      </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav> <!--end of navigation -->
-<form action="" class="search-form ">
-  <div class="form-group">
-    Github user:<input type="text" class="form-control" name="name" id="findProfile" placeholder="enter user name" [(ngModel)]="username" name="username" (keyup)="findProfile()"/>
-  </div>
-</form>
-
-<div *ngIf="profile">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      {{profile.name}} <small>({{profile.login}})</small>
-      <span *ngIf="profile.company">,Works at {{profile.company}}</span>
-
+    <!-- /.container-fluid -->
+  </nav>
+  <!--end of navigation -->
+  <form action="" class="search-form ">
+    <div class="form-group">
+      Github user:<input type="text" class="form-control" name="name" id="findProfile" placeholder="enter user name" [(ngModel)]="username" name="username" (keyup)="findProfile()" />
     </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-sm-3">
-          <img src="{{profile.avatar_url}}" class="img-circle img-responsive" />
-        </div>
-        <div class="col-sm-5">
-          <ul class="List-group">
-            <li class="list-group-item" *ngIf="profile.bio"><strong>Bio </strong>{{profile.bio}}</li>
-            <li class="list-group-item" *ngIf="profile.hireable"><strong>Available for hire </strong></li>
-            <li class="list-group-item" *ngIf="profile.blog"><strong>Blog: </strong><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
-            <li class="list-group-item" *ngIf="profile.email"><strong>Email: </strong><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
-            <li class="list-group-item" *ngIf="profile.location"><strong>Location: </strong>{{profile.location}}</li>
-            <li class="list-group-item" *ngIf="profile.location"><strong>Username: </strong>{{profile.login}}</li>
-            <li class="list-group-item" *ngIf="profile.location"><strong>Member Since: </strong>{{profile.created_at}}</li>
+  </form>
+
+  <div *ngIf="profile">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{profile.name}} <small>({{profile.login}})</small>
+        <span *ngIf="profile.company">,Works at {{profile.company}}</span>
+
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <img class="card-img-top" src="{{profile.avatar_url}}"  />
+              <div class="card-body">
+                <h4 class="card-title">{{profile.login}}</h4>
+                <p class="card-text">{{profile.bio}}</p>
+                <li class="list-group-item" *ngIf="profile.bio"><strong>Bio </strong>{{profile.bio}}</li>
+                <li class="list-group-item" *ngIf="profile.hireable"><strong>Available for hire </strong></li>
+                <li class="list-group-item" *ngIf="profile.blog"><strong>Blog: </strong><a href="{{profile.blog}}" target="_blank">{{profile.blog}}</a></li>
+                <li class="list-group-item" *ngIf="profile.email"><strong>Email: </strong><a href="{{profile.email}}" target="_blank">{{profile.email}}</a></li>
+                <li class="list-group-item" *ngIf="profile.location"><strong>Location: </strong>{{profile.location}}</li>
+                <li class="list-group-item" *ngIf="profile.location"><strong>Username: </strong>{{profile.login}}</li>
+                <li class="list-group-item" *ngIf="profile.location"><strong>Member Since: </strong>{{profile.created_at}}</li>
+                <ul class="List-group">
 
 
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <p>
-            <span class="badge badge-default">{{profile.followers}}Followers</span>
-              <span class="badge badge-primary">Followings{{profile.following}}</span>
-              <span class="badge badge-success">{{profile.public_gists}} Public Gists</span>
-              <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
-          </p>
-          <p> <a href="{{profile.html_url}}" class="btn btn-success btn-sm" target="_">View Profile on Github</a>  </p>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Repos</h3>
-            </div>
-            <div class="panel-body" *ngFor=" let repo of repos">
-              <p class="clearfix">{{repo.name}} <a href="{{repo.html_url}}" class="btn btn-sm btn-success pull-right" target="_">View this project on github</a>
-              </p>
-              <p>{{repo.description}}</p>
+                </ul>
+
+              </div>
             </div>
 
           </div>
+
+          <div class="col-sm-6">
+            <p>
+              <span class="badge badge-default">{{profile.followers}}Followers</span>
+              <span class="badge badge-primary">Followings{{profile.following}}</span>
+              <span class="badge badge-success">{{profile.public_gists}} Public Gists</span>
+              <span class="badge badge-info">{{profile.public_repos}} Public Repos</span>
+            </p>
+            <p> <a href="{{profile.html_url}}" class="btn btn-success btn-sm" target="_">View Profile on Github</a> </p>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Repos</h3>
+              </div>
+              <div class="panel-body" *ngFor=" let repo of repos">
+                <p class="clearfix">{{repo.name}} <a href="{{repo.html_url}}" class="btn btn-sm btn-success pull-right" target="_">View this project on github</a>
+                </p>
+                <p>{{repo.description}}</p>
+              </div>
+
+            </div>
+          </div>
         </div>
+
       </div>
 
     </div>
-
   </div>
-</div>
 </div>
